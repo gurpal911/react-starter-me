@@ -9,10 +9,8 @@ function App() {
     const data = res.json();
     console.log(data);
   }
-  console.log(gen().next());
-  console.log(gen().next());
   return (
-    <div className="App">
+    <div className="App"
       <header className="App-header">
         <span className="App-logo">
           <Logo />
