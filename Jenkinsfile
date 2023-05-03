@@ -4,17 +4,19 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo 'Building...'
+                sh "sudo npm install"
+                sh "sudo npm run build"
             }
         }
         stage('Test') {
             steps {
-                echo 'Testing...'
+                sh "sudo npm run test"
             }
         }
         stage('Deploy') {
             steps {
-                echo 'Deploying....'
+                sh "sudo rm -rf /var/www/jenkins-react-app"
+                sh "sudo cp -r ${WORKSPACE}/build/ /var/www/jenkins-react-app/"
             }
         }
     }
